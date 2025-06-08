@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <conio.h>
+
+void keyboard_interrupt_handler() {
+    char ch = getch();  // Đọc phím vừa nhấn
+    printf("\nPhím bạn vừa nhấn: %c\n", ch);
+}
+
+int main() {
+    printf("Chương trình đang chạy... Nhấn một phím để kích hoạt ngắt.\n");
+
+    while (1) {
+        if (_kbhit()) {  // Kiểm tra nếu có phím nào đó được nhấn
+            keyboard_interrupt_handler();
+        }
+    }
+
+    return 0;
+}
